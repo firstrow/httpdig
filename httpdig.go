@@ -1,4 +1,4 @@
-package main
+package httpdig
 
 import (
 	"encoding/json"
