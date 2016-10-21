@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -70,7 +69,7 @@ func dig(host, recordType string) ([]byte, error) {
 // Query sends request to Google dns service and parses response.
 // e.g: httpdig.Query("google.com", "NS")
 func Query(host string, t string) (Response, error) {
-	resp, err := dig(queryHost, t)
+	resp, err := dig(host, t)
 	if err != nil {
 		return Response{}, err
 	}
