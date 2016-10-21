@@ -55,11 +55,10 @@ func dig(host, recordType string) ([]byte, error) {
 	req.URL.RawQuery = query.Encode()
 
 	resp, err := client.Do(req)
-	defer resp.Body.Close()
-
 	if err != nil {
 		return []byte{}, errors.New("Unable to resolve host")
 	}
+	defer resp.Body.Close()
 
 	body, _ := ioutil.ReadAll(resp.Body)
 
